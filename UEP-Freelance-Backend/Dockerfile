@@ -1,6 +1,5 @@
-FROM openjdk:17-jdk-slim
+FROM openjdk:17
 WORKDIR /app
 COPY . .
-RUN apt-get update && apt-get install -y maven
-RUN mvn clean package -DskipTests    # ← FIXED: "mvn" not "mwn"
+RUN mvn clean package -DskipTests
 CMD ["java", "-jar", "target/*.jar"]
